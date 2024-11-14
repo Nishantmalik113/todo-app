@@ -12,6 +12,7 @@ function App() {
 
   const [selectedTab, setselectedTab] = useState('All')
 
+  
   function handleAddTodos(newTodo){
     const newTodoList = [...todos,{input : newTodo, complete : false}]
     setTodos(newTodoList)
@@ -35,15 +36,15 @@ function App() {
     handleSaveData(newTodoList)
   }
 
-  function handleSaveData(currentTodos){
-    localStorage.setItem('tpdp-app1',JSON.stringify({todos : currentTodos}))
+  function handleSaveData(currTodos) {
+    localStorage.setItem('todo-app', JSON.stringify({ todos: currTodos }))
   }
 
-  useEffect(()=>{
-    if(!localStorage || !localStorage.getItem('todo-app1')){return}
-    let db = JSON.parse(localStorage.getItem('todo-app1'))
-      setTodos(db,todos)
-  },[])
+  useEffect(() => {
+    if (!localStorage || !localStorage.getItem('todo-app')) { return }
+    let db = JSON.parse(localStorage.getItem('todo-app'))
+    setTodos(db.todos)
+  }, [])
 
   return (
     <>
@@ -53,7 +54,10 @@ function App() {
       setselectedTab={setselectedTab} 
       todos={todos}/>
 
-      <ToDoList handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} selectedTab ={selectedTab}  todos={todos} />
+      <ToDoList handleCompleteTodo={handleCompleteTodo} 
+      handleDeleteTodo={handleDeleteTodo} 
+      selectedTab ={selectedTab}  
+      todos={todos} />
 
       <ToDoInput handleAddTodos={handleAddTodos}/>
     </>
