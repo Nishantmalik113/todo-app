@@ -6,10 +6,10 @@ export default function Header(props) {
 
     const isTasksPlural = todos.lenth != 1
 
-    const TaskorTasks = isTasksPlural ? 'task' : 'tasks'
+    const TaskorTasks = isTasksPlural ? 'tasks' : 'task'
     return (
         <header>
-            <h1 className='text-gradient'>You Have {todoslength} Open {TaskorTasks}.</h1>
+            <h1 className='text-gradient'>You Have {todoslength} {TaskorTasks}.</h1>
         </header>
     )
 }

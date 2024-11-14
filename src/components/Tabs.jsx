@@ -11,7 +11,7 @@ export default function Tabs(props) {
                     todos.length :
                     tab ==='Open' ?
                         todos.filter(val=> !val.complete).length :
-                        todos.filter(val=> !val.complete).length 
+                        todos.filter(val=> val.complete).length 
                 return (
                     <button onClick={()=>{
                         setselectedTab(tab)
